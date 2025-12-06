@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { useAnalytics } from '@/components/analytics/AnalyticsProvider';
 import { base44 } from '@/api/base44Client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Card } from '@/components/ui-custom/Card';
 import { Button } from '@/components/ui/button';
-import { 
-  Play, Pause, RotateCcw, Coffee, 
+import {
+  Play, Pause, RotateCcw, Coffee,
   Target, Volume2, VolumeX, Maximize2,
   CheckCircle2
 } from 'lucide-react';
@@ -22,8 +23,11 @@ export default function Focus() {
   const { tokens } = useTheme();
   const { trackEvent } = useAnalytics();
   const queryClient = useQueryClient();
-  
-  usePageTracking('Focus');
+
+  // Track page view
+  useEffect(() => {
+    trackEvent('page_view', { page: 'Focus' });
+  }, [trackEvent]);
   
   const [mode, setMode] = useState('focus');
   const [timeLeft, setTimeLeft] = useState(TIMER_MODES.focus.duration * 60);

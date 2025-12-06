@@ -1,5 +1,8 @@
 
-import { Card } from './Card';
+import { Card } from '@/components/ui/card';
+
+// Re-export for components that import from ui-custom/Card
+export { Card } from '@/components/ui/card';
 
 export default {
   title: 'UI/Card',

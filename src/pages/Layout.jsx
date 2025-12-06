@@ -1,12 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { createPageUrl } from './utils';
-import { ThemeProvider, useTheme } from './components/theme/ThemeProvider';
-import { ErrorBoundary } from './components/ErrorBoundary';
-import { AnalyticsProvider } from './components/analytics/AnalyticsProvider';
-import { SecurityProvider } from './components/security/SecurityProvider';
-import { AccessibilityProvider } from './components/accessibility/AccessibilityProvider';
+import { createPageUrl } from '@/utils';
+import { ThemeProvider, useTheme } from '@/components/theme/ThemeProvider';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { AnalyticsProvider } from '@/components/analytics/AnalyticsProvider';
+import { SecurityProvider } from '@/components/security/SecurityProvider';
+import { AccessibilityProvider } from '@/components/accessibility/AccessibilityProvider';
 import { 
   LayoutDashboard, 
   CheckSquare, 
@@ -18,18 +18,18 @@ import {
   TrendingUp,
   Users
 } from 'lucide-react';
-import { NotificationBell } from './components/notifications/NotificationBell';
-import { SemiCircularNav } from './components/layout/SemiCircularNav';
-import { CommandPalette } from './components/search/CommandPalette';
-import { NotificationService } from './components/notifications/NotificationService';
-import { LoadingBar } from './components/ui-custom/LoadingBar';
-import { UndoProvider } from './components/undo/UndoManager';
-import { OfflineManager } from './components/offline/OfflineManager';
-import { ServiceWorkerRegistration } from './components/offline/ServiceWorkerRegistration';
-import { KeyboardShortcutsHelp } from './components/keyboard/KeyboardShortcuts';
-import { PerformanceMonitor } from './components/performance/PerformanceMonitor';
-import { PerformanceDebugger } from './components/performance/PerformanceDebugger';
-import { BundleAnalyzer } from './components/optimization/BundleAnalyzer';
+import { NotificationBell } from '@/components/notifications/NotificationBell';
+import { SemiCircularNav } from '@/components/layout/SemiCircularNav';
+import { CommandPalette } from '@/components/search/CommandPalette';
+import { NotificationService } from '@/components/notifications/NotificationService';
+import { LoadingBar } from '@/components/ui-custom/LoadingBar';
+import { UndoProvider } from '@/components/undo/UndoManager';
+import { OfflineManager } from '@/components/offline/OfflineManager';
+import { ServiceWorkerRegistration } from '@/components/offline/ServiceWorkerRegistration';
+import { KeyboardShortcutsHelp } from '@/components/keyboard/KeyboardShortcuts';
+import { PerformanceMonitor } from '@/components/performance/PerformanceMonitor';
+import { PerformanceDebugger } from '@/components/performance/PerformanceDebugger';
+import { BundleAnalyzer } from '@/components/optimization/BundleAnalyzer';
 import { cn } from '@/lib/utils';
 import { Toaster } from 'sonner';
 

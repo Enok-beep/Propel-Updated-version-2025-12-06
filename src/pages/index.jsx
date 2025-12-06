@@ -26,6 +26,14 @@ import Reminders from "./Reminders";
 
 import Contacts from "./Contacts";
 
+import Login from "./Login";
+
+import Signup from "./Signup";
+
+import ResetPassword from "./ResetPassword";
+
+import ProtectedRoute from "@/components/auth/ProtectedRoute";
+
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 const PAGES = {
@@ -75,42 +83,30 @@ function _getCurrentPage(url) {
 function PagesContent() {
     const location = useLocation();
     const currentPage = _getCurrentPage(location.pathname);
-    
+
     return (
-        <Layout currentPageName={currentPage}>
-            <Routes>            
-                
-                    <Route path="/" element={<Dashboard />} />
-                
-                
-                <Route path="/Dashboard" element={<Dashboard />} />
-                
-                <Route path="/Tasks" element={<Tasks />} />
-                
-                <Route path="/Focus" element={<Focus />} />
-                
-                <Route path="/Analytics" element={<Analytics />} />
-                
-                <Route path="/Settings" element={<Settings />} />
-                
-                <Route path="/Calendar" element={<Calendar />} />
-                
-                <Route path="/Insights" element={<Insights />} />
-                
-                <Route path="/Teams" element={<Teams />} />
-                
-                <Route path="/TeamDashboard" element={<TeamDashboard />} />
-                
-                <Route path="/Meetings" element={<Meetings />} />
-                
-                <Route path="/TimeTracking" element={<TimeTracking />} />
-                
-                <Route path="/Reminders" element={<Reminders />} />
-                
-                <Route path="/Contacts" element={<Contacts />} />
-                
-            </Routes>
-        </Layout>
+        <Routes>
+            {/* Public routes */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+
+            {/* Protected routes */}
+            <Route path="/" element={<ProtectedRoute><Layout currentPageName={currentPage}><Dashboard /></Layout></ProtectedRoute>} />
+            <Route path="/Dashboard" element={<ProtectedRoute><Layout currentPageName={currentPage}><Dashboard /></Layout></ProtectedRoute>} />
+            <Route path="/Tasks" element={<ProtectedRoute><Layout currentPageName={currentPage}><Tasks /></Layout></ProtectedRoute>} />
+            <Route path="/Focus" element={<ProtectedRoute><Layout currentPageName={currentPage}><Focus /></Layout></ProtectedRoute>} />
+            <Route path="/Analytics" element={<ProtectedRoute><Layout currentPageName={currentPage}><Analytics /></Layout></ProtectedRoute>} />
+            <Route path="/Settings" element={<ProtectedRoute><Layout currentPageName={currentPage}><Settings /></Layout></ProtectedRoute>} />
+            <Route path="/Calendar" element={<ProtectedRoute><Layout currentPageName={currentPage}><Calendar /></Layout></ProtectedRoute>} />
+            <Route path="/Insights" element={<ProtectedRoute><Layout currentPageName={currentPage}><Insights /></Layout></ProtectedRoute>} />
+            <Route path="/Teams" element={<ProtectedRoute><Layout currentPageName={currentPage}><Teams /></Layout></ProtectedRoute>} />
+            <Route path="/TeamDashboard" element={<ProtectedRoute><Layout currentPageName={currentPage}><TeamDashboard /></Layout></ProtectedRoute>} />
+            <Route path="/Meetings" element={<ProtectedRoute><Layout currentPageName={currentPage}><Meetings /></Layout></ProtectedRoute>} />
+            <Route path="/TimeTracking" element={<ProtectedRoute><Layout currentPageName={currentPage}><TimeTracking /></Layout></ProtectedRoute>} />
+            <Route path="/Reminders" element={<ProtectedRoute><Layout currentPageName={currentPage}><Reminders /></Layout></ProtectedRoute>} />
+            <Route path="/Contacts" element={<ProtectedRoute><Layout currentPageName={currentPage}><Contacts /></Layout></ProtectedRoute>} />
+        </Routes>
     );
 }
 

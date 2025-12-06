@@ -34,6 +34,8 @@ const CSP_DIRECTIVES = {
     'https://api.base44.com',
     'wss://api.base44.com',
     'https://*.base44.com',
+    'https://*.supabase.co',
+    'wss://*.supabase.co',
   ],
   'frame-ancestors': ["'none'"], // Prevent clickjacking
   'base-uri': ["'self'"],

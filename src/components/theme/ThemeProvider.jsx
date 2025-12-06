@@ -133,6 +133,27 @@ export function ThemeProvider({ children }) {
 
   const tokens = useMemo(() => palette.variants[effectiveMode], [palette, effectiveMode]);
 
+  // Apply theme CSS variables to DOM
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty('--background', tokens.bg);
+    root.style.setProperty('--foreground', tokens.color);
+    root.style.setProperty('--card', tokens.card);
+    root.style.setProperty('--card-foreground', tokens.color);
+    root.style.setProperty('--primary', tokens.accent);
+    root.style.setProperty('--primary-foreground', tokens.bg);
+    root.style.setProperty('--muted', tokens.card);
+    root.style.setProperty('--muted-foreground', tokens.subtle);
+    root.style.setProperty('--accent', tokens.accent);
+    root.style.setProperty('--border', tokens.border);
+
+    root.classList.remove('light', 'dark');
+    root.classList.add(effectiveMode);
+
+    document.body.style.backgroundColor = tokens.bg;
+    document.body.style.color = tokens.color;
+  }, [tokens, effectiveMode]);
+
   const updateTheme = async (newPaletteId, newMode) => {
     setPaletteId(newPaletteId);
     if (newMode) setMode(newMode);
